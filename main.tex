@@ -1,0 +1,100 @@
+\documentclass{beamer}
+
+% 使用的主题
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% 包含所需的宏包
+\usepackage[UTF8,fontset=windows]{ctex}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[backend=bibtex, sorting=none]{biblatex} % 添加对文献库的支持
+\usepackage{subfigure}
+\usepackage{multirow, booktabs}
+\usepackage{color}
+\usepackage{mathtools}
+
+\addbibresource{references.bib} % 指定文献库文件
+
+% 设置作者、标题、单位等信息
+\title{小组学术报告}
+\subtitle{报告主题}
+\author{报告人姓名}
+\institute{所在单位}
+\date{\today}
+
+% 字体设置
+\usebeamerfont{professionalfonts}
+\setbeamerfont{fontnote}{size=\tiny}
+% 目录设置
+\AtBeginSection[]
+{
+	\begin{frame}{主要内容}
+		%\transfade%淡入淡出效果
+		\tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/shaded/hide] 
+		\addtocounter{framenumber}{-1}  %目录页不计算页码
+	\end{frame}
+}
+\AtBeginSubsection[]
+{
+	\begin{frame}{主要内容}
+		%\transfade%淡入淡出效果
+		\tableofcontents[sectionstyle=show/shaded, subsectionstyle=show/shaded/hide] 
+		\addtocounter{framenumber}{-1}  %目录页不计算页码
+	\end{frame}
+}
+
+% logo 设置
+% \logo{\includegraphics{ustcblue.jpg}}
+
+% \newcommand{\addCenteredLogo}{%
+% 	\ifthenelse{\equal{\insertframenumber}{1}}{}{
+%     	\begin{tikzpicture}[remember picture,overlay]
+%     		\node[opacity=0.5] at (current page.center) {\includegraphics[height=5cm]{ustcblue.jpg}};
+%     	\end{tikzpicture}
+% 	}
+% }
+
+% \setbeamertemplate{footline}{%
+% 	\addCenteredLogo
+% }
+
+\begin{document}
+
+% 标题页
+\frame{\titlepage}
+
+% 目录页
+\begin{frame}
+    \frametitle{目录}
+    \tableofcontents
+\end{frame}
+
+% 包含其他文件
+\input{introduction.tex}
+\input{related_work.tex}
+\input{methods_and_experiments.tex}
+\input{discussion_and_future_work.tex}
+
+% 参考文献
+\begin{frame}[allowframebreaks]{参考文献}
+	\small		
+	% \bibliographystyle{numerical}
+	%\bibliography{reference}
+	\printbibliography
+\end{frame}
+
+% 结束页
+\begin{frame}
+    \centering
+    \Huge
+
+    谢谢观看！
+\end{frame}
+
+\end{document}
